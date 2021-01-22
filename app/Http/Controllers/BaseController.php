@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Classes\Metro;
+use App\Classes\Parser;
 
 class BaseController extends Controller
 {
     public function index()
     {
-        dd(Metro::get_grechka());
+        $parser = (new Parser)->get_grechka();
     }
 }
