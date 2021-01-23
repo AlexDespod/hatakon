@@ -25,12 +25,9 @@ class Parser
         );
 
         foreach ($mass as $url) {
-            // dd($url);
             $client
                 ->get($url)
                 ->then(function (\Psr\Http\Message\ResponseInterface $response) use (&$products, $url) {
-                    // dd($url);
-                    // echo $url;
                     $domain   = "https://" . parse_url($url, PHP_URL_HOST);
                     $products = array_merge(
                         $products,

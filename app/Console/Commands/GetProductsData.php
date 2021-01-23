@@ -6,6 +6,7 @@ use App\Models\Graph;
 use Clue\React\Buzz\Browser;
 use Illuminate\Console\Command;
 use PhpQuery\PhpQuery;
+use Psr\Http\Message\ResponseInterface;
 use React\EventLoop\Factory;
 
 class GetProductsData extends Command
@@ -65,7 +66,7 @@ class GetProductsData extends Command
 
             $client
                 ->get($url)
-                ->then(function (\Psr\Http\Message\ResponseInterface $response) use (&$urls_per_one, $url) {
+                ->then(function (ResponseInterface $response) use (&$urls_per_one, $url) {
 
                     $domain = "https://" . parse_url($url, PHP_URL_HOST);
 
@@ -110,7 +111,7 @@ class GetProductsData extends Command
         foreach ($urls_per_one as $url_per_one) {
             $client1
                 ->get($url_per_one)
-                ->then(function (\Psr\Http\Message\ResponseInterface $response) use (&$data, $url_per_one) {
+                ->then(function (ResponseInterface $response) use (&$data, $url_per_one) {
                     $domain = "https://" . parse_url($url_per_one, PHP_URL_HOST);
                     // print_r($url_per_one);
                     // echo "\r\n";
@@ -125,7 +126,7 @@ class GetProductsData extends Command
         return $data;
     }
 
-    public function parser($text, $domain)
+    public function parser(string $text, string $domain)
     {
         echo "start parse... \r\n" . PHP_EOL;
         $start = microtime(true);

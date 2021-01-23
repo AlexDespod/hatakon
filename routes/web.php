@@ -13,5 +13,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
+Route::get('graph', [BaseController::class, "graph"]);
 Route::resource('base', BaseController::class);
