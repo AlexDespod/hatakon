@@ -7,6 +7,7 @@ use React\EventLoop\Factory;
 
 class Parser
 {
+
     public function get_grechka()
     {
         $products = [];
@@ -27,16 +28,15 @@ class Parser
             // dd($url);
             $client
                 ->get($url)
-                ->then(function (\Psr\Http\Message\ResponseInterface $response) use (&$products, &$url) {
-                    // dd($products);
+                ->then(function (\Psr\Http\Message\ResponseInterface $response) use (&$products, $url) {
+                    // dd($url);
                     // echo $url;
-                    $domain = preg_split('/\//', $url);
-
+                    $domain   = "https://" . parse_url($url, PHP_URL_HOST);
                     $products = array_merge(
                         $products,
                         $this->parser(
                             $response->getBody(),
-                            $domain[0] . $domain[1] . $domain[2]
+                            $domain
                         )
                     );
 
@@ -52,44 +52,6 @@ class Parser
 
         dd($products);
 
-        // $rollingCurl = new RollingCurl();
-
-        // $rollingCurl
-        // ->get('https://auchan.zakaz.ua/ru/categories/buckwheat-auchan/')
-        // ->get('https://novus.zakaz.ua/ru/categories/buckwheat/')
-        // ->get('https://metro.zakaz.ua/ru/categories/buckwheat-metro/')
-
-        // ->setCallback(function (Request $request, RollingCurl $rollingCurl) use (&$products, &$str) {
-        // dd(__DIR__);
-        // $fp = fopen('D:\OpenServer\domains\hatakon/\testcache.txt', 'w');
-        // fwrite($fp, $request->getResponseText());
-        // dd(md5_file('D:\OpenServer\domains\hatakon/\testcache.txt'), md5($request->getResponseText()));
-        // $text = file_get_contents('D:\OpenServer\domains\hatakon/\testcache.txt');
-        // dd($text == $request->getResponseText());
-        // if (md5_file('D:\OpenServer\domains\hatakon/\testcache.txt') == md5($request->getResponseText())) {
-        //     echo "нутро одинаково";
-        // } else {
-        //     echo "два разных файла";
-        // }
-
-        // $domain = preg_split('/\//', $request->getUrl());
-
-        // $products = array_merge(
-        //     $products,
-        //     $this->parser(
-        //         $request->getResponseText(),
-        //         $domain[0] . $domain[1] . $domain[2]
-        //     )
-        // );
-        // $str = $str . $request->getResponseText();
-        //     $rollingCurl->clearCompleted();
-        //     $rollingCurl->prunePendingRequestQueue();
-
-        // })
-        // ->setSimultaneousLimit(300)
-        // ->execute();
-        // $products = $this->parser($str, 'https: //metro.zakaz.ua');
-
     }
 
     public function parser($text, $domain)
@@ -102,6 +64,7 @@ class Parser
         $pq->load_str($text);
 
         $elems = $pq->query('a.product-tile.jsx-725860710');
+        echo "mid parse... " . (microtime(true) - $start) . "<br>" . PHP_EOL;
 
         $mass = [];
 

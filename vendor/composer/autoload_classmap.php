@@ -10,6 +10,7 @@ return array(
     'App\\Classes\\Metro' => $baseDir . '/app/Classes/Metro.php',
     'App\\Classes\\Novus' => $baseDir . '/app/Classes/Novus.php',
     'App\\Classes\\Parser' => $baseDir . '/app/Classes/Parser.php',
+    'App\\Console\\Commands\\GetProductsData' => $baseDir . '/app/Console/Commands/GetProductsData.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\BaseController' => $baseDir . '/app/Http/Controllers/BaseController.php',

@@ -600,6 +600,7 @@ class ComposerStaticInit77b9a3cfc86862a1621983be49021fff
         'App\\Classes\\Metro' => __DIR__ . '/../..' . '/app/Classes/Metro.php',
         'App\\Classes\\Novus' => __DIR__ . '/../..' . '/app/Classes/Novus.php',
         'App\\Classes\\Parser' => __DIR__ . '/../..' . '/app/Classes/Parser.php',
+        'App\\Console\\Commands\\GetProductsData' => __DIR__ . '/../..' . '/app/Console/Commands/GetProductsData.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/BaseController.php',
