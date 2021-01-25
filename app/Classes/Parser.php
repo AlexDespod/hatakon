@@ -19,15 +19,10 @@ class Parser
     {
 
     }
-    // public function sort_grechka(array $inputs)
-    // {
-    //     $data = [];
-    //     if ($inputs['store'] != 'all') {
-    //         $data = $this->get_by_store($inputs['store']);
-    //     } else {
-    //         $data = $this->get_grechka($this->urls);
-    //     }
-    // }
+    public function get_all_grechka()
+    {
+        return $this->get_grechka($this->urls);
+    }
 
     public function get_top_10_by_price()
     {
