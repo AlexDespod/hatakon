@@ -176,6 +176,7 @@ class ComposerStaticInit77b9a3cfc86862a1621983be49021fff
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Common\\Lexer\\' => 22,
+            'DiDom\\' => 6,
             'DeepCopy\\' => 9,
             'Database\\Seeders\\' => 17,
             'Database\\Factories\\' => 19,
@@ -533,6 +534,10 @@ class ComposerStaticInit77b9a3cfc86862a1621983be49021fff
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
         ),
+        'DiDom\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -614,6 +619,7 @@ class ComposerStaticInit77b9a3cfc86862a1621983be49021fff
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Graph' => __DIR__ . '/../..' . '/app/Models/Graph.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -756,6 +762,16 @@ class ComposerStaticInit77b9a3cfc86862a1621983be49021fff
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'DiDom\\ClassAttribute' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/ClassAttribute.php',
+        'DiDom\\Document' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/Document.php',
+        'DiDom\\DocumentFragment' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/DocumentFragment.php',
+        'DiDom\\Element' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/Element.php',
+        'DiDom\\Encoder' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/Encoder.php',
+        'DiDom\\Errors' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/Errors.php',
+        'DiDom\\Exceptions\\InvalidSelectorException' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/Exceptions/InvalidSelectorException.php',
+        'DiDom\\Node' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/Node.php',
+        'DiDom\\Query' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/Query.php',
+        'DiDom\\StyleAttribute' => __DIR__ . '/..' . '/imangazaliev/didom/src/DiDom/StyleAttribute.php',
         'Doctrine\\Common\\Lexer\\AbstractLexer' => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer/AbstractLexer.php',
         'Doctrine\\Inflector\\CachedWordInflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/CachedWordInflector.php',
         'Doctrine\\Inflector\\GenericLanguageInflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/GenericLanguageInflectorFactory.php',
