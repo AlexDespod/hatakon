@@ -16,6 +16,7 @@ class Graph extends Migration
         Schema::create('graph', function (Blueprint $table) {
             $table->increments("id");
             $table->string('store');
+            $table->string('title');
             $table->text('brand');
             $table->float('price');
             $table->timestamps();

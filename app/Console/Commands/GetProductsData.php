@@ -185,6 +185,7 @@ class GetProductsData extends Command
         }
         unset($wait_per_one);
         $mass['price'] = ((int) $document->first('.Price__value_title.jsx-3642073353')->text()) * $koef;
+        $mass['title'] = trim($document->first('.big-product-card__title.jsx-3554221871')->text());
 
         $mass['brand'] = trim($document->first('.BigProductCardTrademarkName.jsx-3555213589')->text());
 

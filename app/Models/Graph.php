@@ -9,5 +9,5 @@ class Graph extends Model
 {
     use HasFactory;
     protected $table    = 'graph';
-    protected $fillable = ['brand', 'price', 'store'];
+    protected $fillable = ['title', 'brand', 'price', 'store'];
 }

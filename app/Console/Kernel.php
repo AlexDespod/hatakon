@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule
             ->command('get:products')
-            ->everyTwoHours()
+            ->everyFourMinutes()
             ->withoutOverlapping();
     }
 
