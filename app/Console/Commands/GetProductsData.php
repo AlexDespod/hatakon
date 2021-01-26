@@ -55,11 +55,8 @@ class GetProductsData extends Command
         $data         = $this->get_data($urls_per_one);
 
         foreach ($data as $el) {
-            print_r($el);
-            if (1 == 2) {
-                Graph::create($el);
-            }
 
+            Graph::create($el);
         }
     }
     public function get_urls(array $urls_per_all)
@@ -92,12 +89,13 @@ class GetProductsData extends Command
         $loop->run();
         // print_r($urls_per_one);
         unset($client, $loop);
-        echo " urls got \r\n";
+        // echo " urls got \r\n";
 
         return $urls_per_one;
     }
     public function parse_urls($text, $domain)
     {
+
         $pq = new PhpQuery();
 
         $pq->load_str($text);
@@ -133,18 +131,13 @@ class GetProductsData extends Command
                 ->get($url_per_one)
                 ->then(function (ResponseInterface $response) use (&$data, $url_per_one) {
                     $domain = "https://" . parse_url($url_per_one, PHP_URL_HOST);
-                    echo "DATA GOT !!!!!! \r\n";
+
                     $content = $response->getBody();
                     unset($response);
                     $temp = $this->parser($content, $domain);
                     unset($content);
-                    // echo memory_get_usage() . "\r\n";
-
-                    // echo "\r\n " . $url_per_one . "\r\n";
-
                     $data[] = $temp;
-                    // echo memory_get_usage() . "\r\n";
-                    // dd(1);
+                    ;
                 }, function (\Exception $e) {
                     if ($e instanceof ResponseException) {
                         $response = $e->getResponse();
@@ -158,23 +151,21 @@ class GetProductsData extends Command
 
         $loop->run();
         unset($client, $loop);
-        echo " data got in " . (microtime(true) - $start) . "\r\n";
-        // echo count($data) . " datas got \r\n";
-        // echo (count($urls_per_one) - count($data)) . " datas feiled \r\n";
+
         return $data;
     }
 
     public function parser(string $text, string $domain)
     {
-        echo "start parse... \r\n" . PHP_EOL;
-        $start = microtime(true);
+        // echo "start parse... \r\n" . PHP_EOL;
+        // $start = microtime(true);
 
         $document = new Document($text);
 
-        echo "mid parse... " . (microtime(true) - $start) . "\r\n" . PHP_EOL;
+        // echo "mid parse... " . (microtime(true) - $start) . "\r\n" . PHP_EOL;
 
         unset($text);
-        echo memory_get_usage() . "\r\n";
+        // echo memory_get_usage() . "\r\n";
 
         $wait_per_one = $document->first('.big-product-card__amount.jsx-3554221871')->text();
 
@@ -200,7 +191,7 @@ class GetProductsData extends Command
         $mass['store'] = (preg_split('/\./', parse_url($domain, PHP_URL_HOST)))[0];
         // echo $koef . "\r\n";
         // print_r($mass);
-        echo memory_get_usage() . "\r\n";
+        // echo memory_get_usage() . "\r\n";
 
         return $mass;
 

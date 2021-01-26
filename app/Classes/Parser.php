@@ -72,7 +72,7 @@ class Parser
                     );
                     $products['brands']  = $this->merge_brand_list($products['brands'], $temp['brands']);
                     $products['weights'] = $this->merge_weight_list($products['weights'], $temp['weights']);
-
+                    unset($response);
                 });
 
         }
@@ -82,11 +82,12 @@ class Parser
 
     public function parser($text, $domain)
     {
-        $mass     = [];
-        $brands   = [];
-        $weights  = [];
-        $document = new Document($text);
+        $mass    = [];
+        $brands  = [];
+        $weights = [];
 
+        $document = new Document($text);
+        unset($text);
         $elems = $document->find('.product-tile');
 
         foreach ($elems as $key => $el) {
@@ -126,11 +127,12 @@ class Parser
             $mass['data'][$key]['price_per_kg']  = (int) $price * $koef;
 
         }
+        unset($elems);
 
         $brandElems = $document
             ->first('.catalog-filters__widget.jsx-54661519')
             ->find('.SimpleCheckboxOptionAmounted.jsx-268113897');
-
+        unset($document);
         foreach ($brandElems as $key => $el) {
             $name                  = trim($el->first('.SimpleCheckboxOptionAmounted__text.jsx-268113897')->text());
             $count                 = (int) trim($el->first('.SimpleCheckboxOptionAmounted__amount.jsx-268113897')->text());
@@ -139,9 +141,7 @@ class Parser
         }
         $mass['brands'] = $brands;
 
-        $mass['weights'] = array_unique($weights);
-        // print_r($mass['weights']);
-        // echo " aa<br>";
+        $mass['weights'] = $weights;
 
         return $mass;
     }
