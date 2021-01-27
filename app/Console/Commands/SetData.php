@@ -12,7 +12,7 @@ class SetData extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'set:data';
 
     /**
      * The console command description.
