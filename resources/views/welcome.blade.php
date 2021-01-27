@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('css/flex.css')}}">
     <link rel="stylesheet" href="{{asset('css/preloader.css')}}">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 </head>
 
 <body>
@@ -54,14 +56,6 @@
 
 <div id="SideBar">
     <div id="SideBarMenu">
-{{--        <div class="row">--}}
-{{--            <div class="col text-white">--}}
-{{--                <form method="get">--}}
-{{--                    <h5>sdf</h5>--}}
-{{--                    <input type="text" class="form-control">--}}
-{{--                </form>--}}
-{{--            </div>--}}
-{{--        </div>--}}
         <form id="params" method="get" class="cl1">
             <div class="row">
                 <h5>Сортування:</h5>
@@ -96,15 +90,6 @@
                 </div>
             </div>
 
-{{--            <div class="row">--}}
-{{--                <h5>Вага:</h5>--}}
-{{--                <div class="col">--}}
-{{--                    <input type="text" class="form-control" name="weight_from" placeholder="Від">--}}
-{{--                </div>--}}
-{{--                <div class="col">--}}
-{{--                    <input type="text" class="form-control" name="weight_to" placeholder="До">--}}
-{{--                </div>--}}
-{{--            </div>--}}
 
             <div class="row">
                 <h5>Пошук:</h5>
@@ -113,24 +98,23 @@
             <input type="submit" class="btn btn-success form-control mt-1" value="Відобразити">
         </form>
         <script>
-            let products = [];
-            const items = document.querySelector('#items');
-            const brand_selector = document.querySelector('#brand_selector');
+            var products = [];
+            var items = document.querySelector('#items');
+            var brand_selector = document.querySelector('#brand_selector');
+            var weight_selector = document.querySelector('#weight_selector');
             function Compare_desc(a, b){
-                // if (a.price_per_one === b.price_per_one) return 0;
-                // if (a.price_per_one > b.price_per_one)
-                //     return -1;
-                // else
-                //     return 1;
-                return a.price_per_one - b.price_per_one;
+                if (a.price_per_one === b.price_per_one) return 0;
+                if (a.price_per_one > b.price_per_one)
+                    return -1;
+                else
+                    return 1;
             }
             function Compare_asc(a, b){
-                return d.price_per_one - a.price_per_one;
-                // if (a.price_per_one === b.price_per_one) return 0;
-                // if (a.price_per_one < b.price_per_one)
-                //     return -1;
-                // else
-                //     return 1;
+                if (a.price_per_one === b.price_per_one) return 0;
+                if (a.price_per_one < b.price_per_one)
+                    return -1;
+                else
+                    return 1;
             }
             function addProduct(product){
                 items.innerHTML += `
@@ -154,7 +138,7 @@
                             </div>`;
             }
             function filter(params){
-                let params_arr = new URLSearchParams(params);
+                var params_arr = new URLSearchParams(params);
                 items.innerHTML = '';
                 switch (params_arr.get('sort')) {
                     case '1':
@@ -166,24 +150,24 @@
                     default:
                         break;
                 }
-                // console.log(params_arr)
                 products.data.forEach((product) => {
                     if (params_arr.get('brand')){
-                        let brand = params_arr.get('brand');
+                        var brand = params_arr.get('brand');
                         if (!(product.brand === brand)) return;
                     }
                     if (params_arr.get('price_from') || params_arr.get('price_to')){
-                        let price_from = params_arr.get('price_from');
-                        let price_to = params_arr.get('price_to');
-                        if (!(price_from >= product.price_per_one && price_to <= product.price_per_one)) return;
+                        var price_from = params_arr.get('price_from') ? parseInt(params_arr.get('price_from')) : 0;
+                        var price_to = params_arr.get('price_to') ? parseInt(params_arr.get('price_to')) : 0;
+                        var price = product.price_per_one;
+                        if (!(price_from <= price && price_to >= price)) return;
                     }
                     if (params_arr.get('weight')){
-                        let weight = params_arr.get('weight');
+                        var weight = params_arr.get('weight');
                         if (!(product.weight_per_one === weight)) return;
                     }
                     // if (params_arr.get('weight_from') || params_arr.get('weight_to')){
-                    //     let weight_from = params_arr.get('weight_from') ?? 0;
-                    //     let weight_to = params_arr.get('weight_to') ?? 9999;
+                    //     var weight_from = params_arr.get('weight_from') ?? 0;
+                    //     var weight_to = params_arr.get('weight_to') ?? 9999;
                     //     if (!(product.price_per_one >= weight_from && product.price_per_one <= weight_to)) return;
                     // }
                     if (params_arr.get('s_title')){
@@ -194,24 +178,29 @@
                 });
             }
             async function getProducts(){
-                let preloader = document.querySelector('#items-preloader')
+                var preloader = document.querySelector('#items-preloader')
                 if (preloader.classList.contains('done'))
                     preloader.classList.remove('done')
                 items.innerHTML = '';
-                let data = await fetch('/api/all');
+                var data = await fetch('/api/all');
                 products = await data.json();
+                console.log(products)
                 products.data.forEach((product) => {
                     addProduct(product);
                 })
                 products.brands.forEach((brand) => {
                     brand_selector.innerHTML += `<option value="${brand.brand}">${brand.brand}</option>`;
                 })
+
+                for(weight in products.weights){
+                    weight_selector.innerHTML += `<option value="${products.weights[weight]}">${products.weights[weight]}</option>`;
+                }
                 if (!preloader.classList.contains('done'))
                     preloader.classList.add('done')
             }
             getProducts();
             $('#params').submit(function (e) {
-                let $form = $(this);
+                var $form = $(this);
                 filter($form.serialize());
                 e.preventDefault();
             })
