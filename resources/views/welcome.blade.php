@@ -7,9 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{asset('assets/css/flex.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/preloader.css')}}">
-    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/flex.css')}}">
+    <link rel="stylesheet" href="{{asset('css/preloader.css')}}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
