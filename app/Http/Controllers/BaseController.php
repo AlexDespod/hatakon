@@ -14,6 +14,6 @@ class BaseController extends Controller
     }
     public function top()
     {
-
+        return view('top');
     }
 }
