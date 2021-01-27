@@ -7,8 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{asset('css/flex.css')}}">
-    <link rel="stylesheet" href="{{asset('css/preloader.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/flex.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/preloader.css')}}">
     <script src="{{asset('js/jquery.min.js')}}"></script>
 </head>
 
@@ -113,7 +113,7 @@
             <input type="submit" class="btn btn-success form-control mt-1" value="Відобразити">
         </form>
         <script>
-            const products = [];
+            let products = [];
             const items = document.querySelector('#items');
             const brand_selector = document.querySelector('#brand_selector');
             function Compare_desc(a, b){
