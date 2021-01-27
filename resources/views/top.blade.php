@@ -19,7 +19,7 @@
     <nav>
         <ul class="nav_links">
             <li>
-                <a href="/index">MAIN</a>
+                <a href="/">MAIN</a>
             </li>
             <li>
                 <a href="/top">TOP 10</a>
