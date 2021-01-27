@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('graph', [BaseController::class, "graph"]);
 Route::get('top', [BaseController::class, "top"]);
-Route::get('index', [BaseController::class, "index"]);
+Route::get('/', [BaseController::class, "index"]);
