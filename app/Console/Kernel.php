@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\GetProductsData;
+use App\Console\Commands\SetData;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,6 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         GetProductsData::class,
+        SetData::class,
     ];
 
     /**
