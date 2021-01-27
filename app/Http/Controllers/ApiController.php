@@ -12,11 +12,12 @@ class ApiController extends Controller
     public function index(Parser $parser)
     {
         try {
+
             $data = $parser->get_all_grechka();
             return new JsonResponse(
                 $data,
                 200,
-                ['Content-Type: application/json; charset=utf-8'],
+                ['Content-Type:' => ' application/json; charset=utf-8'],
                 JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
             );
         } catch (Exception $e) {
@@ -31,7 +32,7 @@ class ApiController extends Controller
             return new JsonResponse(
                 $data,
                 200,
-                ['Content-Type: application/json; charset=utf-8'],
+                ['Content-Type:' => ' application/json; charset=utf-8'],
                 JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
             );
 

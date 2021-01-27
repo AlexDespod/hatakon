@@ -6,7 +6,7 @@ class BaseController extends Controller
 {
     public function index()
     {
-
+        return view('welcome');
     }
     public function graph()
     {

@@ -21,6 +21,7 @@ class Parser
     }
     public function get_all_grechka()
     {
+
         return $this->get_grechka($this->urls);
     }
 

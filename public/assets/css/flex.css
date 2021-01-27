@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+}
+
+li,a,h1,h4,p{
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header{
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%  ;
+}
+
+.nav_links{
+    list-style: none;
+}
+
+.nav_links li{
+    display: inline-block ;
+    padding: 20px 20px 20px 20px;
+}
+
+
+
+.nav_links li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover{
+  color: #0088a9;
+}
+
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.container{
+    max-width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom:100px ;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.cards_box{
+    padding: 65px 50px 45px;
+    flex : 1 100%;
+    border: .5px solid #cecece;
+    margin: 15px;
+}
+
+.text_center{
+    text-align: center;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+
+
+
+
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cards_wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards_wrap .card_item {
+  width: 20%;
+  padding: 10px;
+}
+
+.cards_wrap .card_inner {
+  background: #fff;
+}
+
+.cards_wrap .card_top {
+  width: 100%;
+  min-height: 225px;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.cards_wrap .card_top img {
+    border-radius: 2%;
+}
+
+.cards_wrap .card_bottom {
+  padding: 15px;
+}
+
+.cards_wrap .card_bottom .card_category {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cards_wrap .card_bottom .card_info {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px dashed #0071bc;
+}
+
+.cards_wrap .card_bottom .card_info .title {
+  color: #0071bc;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.cards_wrap .card_bottom .card_creator {
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .cards_wrap .card_item {
+    width: 33.3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards_wrap .card_item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 528px) {
+  .cards_wrap .card_top {
+    height: auto;
+  }
+  .cards_wrap .card_item {
+    width: 100%;
+  }
+}
+
+
+#SideBar
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100vh;
+    transition: 300ms width;
+
+    display: flex;
+    justify-content: flex-start;
+    padding: 4px;
+    box-sizing: border-box;
+    align-items: center;
+
+    background-color: #333;
+    box-shadow: 2px 3px 10px 2px rgba(0,0,0,0.3);
+}
+
+#SideBarText
+{
+    position: relative;
+    margin-right: -35px;
+    margin-left: -70px;
+    left: 43px;
+    transition: 300ms;
+
+    transform: rotate(270deg);
+    padding: 10px 18px 10px 18px;
+
+    font-size: 24px;
+    color: #CCC;
+    background-color: #333;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.3);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+#SideBarText:hover
+{
+    color: #000;
+    background-color: #FFBB00;
+    cursor: pointer;
+}
+
+#SideBarMenu
+{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#SideBarMenu h5 {
+    color: white;
+}
+
+#SideBarMenu select, input, select {
+    background: white;
+    text-align: center;
+    text-align-last: center;
+
+}
+
+#SideBarMenu::-webkit-scrollbar
+{
+    display: none;
+}
+
+.cl1{
+
+
+    border: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .bla{
+    width:100%
+  }
